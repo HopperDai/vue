@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="box" :title="a" @click="fn()">{{a+b}} {{a}}
+    <div id="box" :title="a" @click="fn">{{a+b}} {{a}}
         <input type="text" v-model="a">
     </div>
 
@@ -27,10 +27,6 @@
                 }
             }
         });
-
-        setInterval(() => {
-            vm.a++;
-        }, 1000);
     </script>
 </body>
 
