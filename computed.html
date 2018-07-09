@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" v-model="num1">
+        <input type="text" v-model="num2"> {{num1+num2}}
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#box',
+            data: {
+                N1: 1,
+                N2: 2
+            },
+            computed: {
+                num1: {
+                    get() { // 获取。等号左边
+                        return this.N1;
+                    },
+                    set(newVal) { // 设置。等号右边
+                        let n = parseInt(newVal);
+                        this.N1 = n < 0 ? 0 : n;
+                    }
+                },
+                num2: {
+                    get() {
+                        return this.N2;
+                    },
+                    set(newVal) {
+                        this.N2 = parseInt(newVal);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
