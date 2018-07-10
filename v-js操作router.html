@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <style>
+        .my-link {
+            text-decoration: none;
+            padding: 6px 4px;
+            background: #ccc;
+            border: 1px solid yellow;
+        }
+
+        .router-link-active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" value="后退" @click="back">
+        <input type="button" value="前进" @click="forward">
+        <input type="button" value="直接user" @click="push">
+        <br/>
+        <!-- 3. 渲染容器 -->
+        <router-link to="/user" class="my-link">用户列表</router-link>
+        <router-link to="/article" class="my-link">文章列表</router-link>
+        <router-link to="/test/12a" class="my-link">test params</router-link>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        /* vue 路由 */
+
+        // 1. 声明路由
+        let r1 = new VueRouter({
+            // template: 必须是标签，只能有一个顶级标签
+            routes: [{
+                path: '/user',
+                component: {
+                    template: '<div>用户</div>'
+                }
+            }, {
+                path: '/article',
+                component: {
+                    template: '<div>文章</div>'
+                }
+            },{
+                path:'/test/:id',
+                component:{
+                    template:'<div>测试的id:{{$route.params.id}}</div>'
+                }
+            }]
+        });
+
+        // 2. 调用路由
+        let vm = new Vue({
+            el: '#box',
+            router: r1,
+            methods: {
+                back() {
+                    this.$router.go(-1); // $router 对路由r1的引用
+                },
+                forward() {
+                    this.$router.go(1);
+                },
+                push() {
+                    // 等价 router-link 的 to
+                    this.$router.push('/user');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

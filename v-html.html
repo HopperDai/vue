@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="box" v-html="str">
+        <input type="text">
+        <input type="text">
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#box',
+            data: {
+                str: `
+                <strong>aaaaa</strong>123
+                    `
+            }
+        });
+    </script>
+</body>
+
+</html>

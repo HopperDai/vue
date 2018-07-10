@@ -85,7 +85,29 @@ new Vue({
 
   - vue 指令
 
-    `v-bind:xxx` `v-on:xxx` `v-model`
+    - `v-bind:xxx` 渲染属性
+
+    - `v-on:xxx` 事件
+
+    - `v-model` 双向绑定
+
+    - `v-html` 渲染 html
+
+    - `v-for` 循环。array,json,str,num
+
+        - `:key` 提高性能
+
+    - `v-if` 判断。删除、插入DOM节点
+
+    - `v-show` 显示、隐藏——display
+
+    - `v-cloak`
+
+    - 优化/提高性能
+
+      - `v-once` 仅渲染一次（如：用户协议） 
+
+      - `v-pre` 禁用标签内的表达式。确信标签内没有{{}},使用该指令告诉 vue ，免得去检查
 
 ### 双向绑定：数据&视图
 
@@ -101,11 +123,41 @@ new Vue({
 
   - `v-html`：原样输出
 
-- computed 计算数据
+  - `:title`：属性
+
+  - `@click`：事件
+
+- 事件的修饰符：指定具体属性/事件的操作。如`@submit.prevent`   `.prevent` 指定阻止默认事件，即充当修饰符
+
+- data 普通属性
+
+- methods 普通方法
+
+- computed 计算数据。简单、可缓存（调用频繁可提高性能），只适合同步操作
 
   - 受控制的访问——set/get -> 过滤不需要的数据
 
+- 监听：当数据变化的时候，有通知。适合异步操作
+
 ## vue-router
+
+1. 用法：
+
+- 渲染容器：`<router-view></router-view>` -> router 的 component 会被渲染到里面
+
+- 路由跳转：`<router-link to="xxx"></router-link>`
+
+2. js 操作路由
+
+- `this.$router.go()`
+
+- `this.$router.push()`
+
+3. 路由参数
+
+- 声明 path: `path: '/user/:id'`
+
+- 在 component 中使用: `$route.param.id`
 
 ## component、通信、状态管理（vuex）
 
