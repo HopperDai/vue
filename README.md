@@ -159,6 +159,74 @@ new Vue({
 
 - 在 component 中使用: `$route.param.id`
 
-## component、通信、状态管理（vuex）
+4. 路由监听
+
+- watch 方法 -> 不推荐
+
+- 官方：
+  - 放在 `component` 中
+
+  - `beforeRouteEnter` 方法
+
+    ```javascript
+    // to 下一级路径
+    // from 上一级
+    // next 检查完成进行下一步 -> 权限的检测
+    beforeRouteUpate(to,from,next){
+
+    }
+    ```
+
+5. 路由对象
+
+- path: 匹配路由路径，可以带参数
+
+- component 路由主体
+
+- children 子路由 -> 路径的坑 
+
+6. 命名路由 `router-link`
+
+- 基本
+
+  `to='/路径'`
+
+- 扩展
+
+  :to="{name,path,params,query}"
+
+7. 命名视图（多视图）`router-view`
+
+8. 总结：路由就是一个锚点（#xxx）, 根据锚点信息，确定显示哪个组件
+
+- 工作原理：匹配#后面
+
+- 带参数
+
+- 多路由
+
+- 单一路由下，多视图
+
+## component -> 组件=html+css+html 
+
+1. 封装、使用组件
+
+- 全局组件
+
+  - 注册（声明）
+
+  `Vue.component('名字',{template:'xxx'})`
+
+  - 使用
+
+  `<名字></名字>`
+
+- 局部组件
+
+2. 父子组件
+
+3. 组件间通信
+
+## 通信、状态管理（vuex）
 
 ## vue-cli

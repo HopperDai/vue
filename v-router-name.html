@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <style>
+        .my-link {
+            text-decoration: none;
+            padding: 6px 4px;
+            background: #ccc;
+            border: 1px solid yellow;
+        }
+
+        .router-link-active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <router-link :to="{name:'user'}" class="my-link">用户信息</router-link>
+        <router-link to="/article/22" class="my-link">文章</router-link>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        /* vue 路由 */
+
+        // 1. 声明路由
+        let r1 = new VueRouter({
+            // template: 必须是标签，只能有一个顶级标签
+            routes: [{
+                path: '/user',
+                name:'user',
+                component: {
+                    template: `
+                    <div>
+                        <h4>用户{{$route.params.id}}</h4>
+                    </div>
+                    `
+                }
+            },{
+                path:'/article/:id',
+                component:{
+                    template:`
+                    <div>
+                        <h4>文章{{$route.params.id}}</h4>
+                    </div>
+                    `
+                }
+            }]
+        });
+
+        // 2. 调用路由
+        let vm = new Vue({
+            el: '#box',
+            router: r1,
+            methods: {
+                back() {
+                    this.$router.go(-1); // $router 对路由r1的引用
+                },
+                forward() {
+                    this.$router.go(1);
+                },
+                push() {
+                    // 等价 router-link 的 to
+                    this.$router.push('/user');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
