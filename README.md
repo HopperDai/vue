@@ -247,10 +247,94 @@ new Vue({
 
 - 创建工程 `vue init <template> <path>`
 
-### vue-cli 组成
+### vue-cli package.json
 
 - 包含组件
 
   1. 编译
 
-     postcss、autoprefixer 编译css
+     - postcss、autoprefixer 编译css
+
+     - babel 编译ES6
+
+     - webpack
+
+  2. 测试
+
+     - *-loader 热编译
+
+     - eslint 代码质量
+
+     - jest 单元测试
+
+     - nightwatch e2e测试
+
+  3. 其他
+
+     - 命令行高亮
+
+### vue-cli 工程目录
+
+- .babelrc babel配置
+
+- .editorconfig 编辑器配置
+
+- .eslintignore eslint忽略列表
+
+- .eslintrc.js eslint配置
+
+- .gitignore git忽略列表
+
+- .postcssrc.js postcss配置
+
+- package.json node配置
+
+- READMD.md 说明文件
+
+- index.html 入口文件，唯一的 html
+
+- config/ 配置文件
+
+- src/ 源文件（打包）
+
+- static/ 静态资源
+
+- test/ 测试配置、用例
+
+- build 生成用的配置
+
+### 可用脚本
+
+- dev/start 运行项目（开发模式）
+
+- test 测试
+
+  - unit 单元测试
+
+  - e2e 端到端测试
+
+- lint 代码质量测试
+
+- build 生成项目
+
+### vscode
+
+`
+"Print to console": {
+		"prefix": "vue",
+		"body": [
+			"<template>",
+			"  <div></div>",
+			"</template>",
+			"",
+			"<script>",
+			"export default {",
+			"}",
+			"",
+			"</script>",
+			"<style scoped>",
+			"</style>"
+		],
+		"description": "A vue file template"
+	}
+`
