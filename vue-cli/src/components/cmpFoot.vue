@@ -1,10 +1,9 @@
 <template>
-  <div>abc</div>
+  <div>footer</div>
 </template>
 
 <script>
-export default {
-}
+export default {}
 
 </script>
 <style scoped>
