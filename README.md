@@ -230,3 +230,27 @@ new Vue({
 ## 通信、状态管理（vuex）
 
 ## vue-cli
+
+- 作用：
+
+  1. 开发环境
+
+  2. 检测代码质量。eslint
+
+  3. 打包、编译
+
+  4. 测试。单元测试、E2E（端到端->end to end）
+
+- 安装 vue-cli : `npm i -g vue-cli`
+
+- 列出模板列表：`vue list` -> webpack
+
+- 创建工程 `vue init <template> <path>`
+
+### vue-cli 组成
+
+- 包含组件
+
+  1. 编译
+
+     postcss、autoprefixer 编译css
